@@ -20,7 +20,7 @@ public:
 
 	/** Attaches the actor to a FirstPersonCharacter */
 	UFUNCTION(BlueprintCallable, Category="Weapon")
-	bool AttachWeapon(AcppmpCharacter* TargetCharacter);
+	bool AttachWeapon(AcppmpCharacter* TargetCharacter, FName GripPoint);
 
 protected:
 	/** Projectile class to spawn */
@@ -38,6 +38,10 @@ protected:
 	/** Gun muzzle's offset from the characters location */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Projectile, meta=(AllowPrivateAccess=true))
 	FVector MuzzleOffset;
+
+	/*/** Grip point #1#
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Projectile, meta=(AllowPrivateAccess=true))
+	FName GripPoint;*/
 
 public: // Getters
 	// Projectile class

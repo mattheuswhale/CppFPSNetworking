@@ -12,9 +12,10 @@
 // Sets default values for this component's properties
 UcppmpWeaponComponent::UcppmpWeaponComponent() {
 	// Default offset from the character location for projectiles to spawn
+	/*GripPoint = TEXT("GripPoint");*/
 	MuzzleOffset = FVector(100.0f, 0.0f, 10.0f);
 }
-bool UcppmpWeaponComponent::AttachWeapon(AcppmpCharacter* TargetCharacter) {
+bool UcppmpWeaponComponent::AttachWeapon(AcppmpCharacter* TargetCharacter, FName GripPoint = TEXT("GripPoint")) {
 	Character = TargetCharacter;
 
 	// Check that the character is valid, and has no weapon component yet
@@ -24,7 +25,7 @@ bool UcppmpWeaponComponent::AttachWeapon(AcppmpCharacter* TargetCharacter) {
 
 	// Attach the weapon to the First Person Character
 	FAttachmentTransformRules AttachmentRules(EAttachmentRule::SnapToTarget, true);
-	AttachToComponent(Character->GetMesh1P(), AttachmentRules, FName(TEXT("GripPoint")));
+	AttachToComponent(Character->GetMesh1P(), AttachmentRules, GripPoint);
 	return true;
 }
 
